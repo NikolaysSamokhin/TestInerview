@@ -2,6 +2,7 @@ package org.testinterview.tests;
 
 import org.apache.log4j.Logger;
 import org.testinterview.objects.User;
+import org.testinterview.ui.pages.VirtualReceptionPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,8 +21,10 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
 
     @Test
     public void setFullName() throws InterruptedException {
-        LOG.info("start 'generateDrafts'");
+        LOG.info("start ''");
+        Thread.sleep(5000);
+        VirtualReceptionPage virtualReceptionPage = new VirtualReceptionPage();
+        virtualReceptionPage.SetFullName(user);
         Thread.sleep(5000);
     }
-
 }
