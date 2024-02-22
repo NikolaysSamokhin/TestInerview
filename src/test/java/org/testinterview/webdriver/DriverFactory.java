@@ -2,8 +2,6 @@ package org.testinterview.webdriver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Arrays;
@@ -11,9 +9,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
-
     private static final String CHROME_DRIVER_PATH = "src/test/resources/drivers/chromedriver.exe";
-    private static final String IE_DRIVER_PATH = "src/test/resources/drivers/IEDriverServer.exe";
 
     public static WebDriver createInstance() {
 
@@ -29,7 +25,7 @@ public class DriverFactory {
                 driver = new ChromeDriver(chromeCapabilities);
                 break;
             default:
-                driver = new FirefoxDriver();
+                driver = new ChromeDriver();
                 break;
         }
 

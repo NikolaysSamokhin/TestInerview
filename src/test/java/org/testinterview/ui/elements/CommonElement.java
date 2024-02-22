@@ -1,4 +1,4 @@
-package org.testinterview.ui;
+package org.testinterview.ui.elements;
 
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
