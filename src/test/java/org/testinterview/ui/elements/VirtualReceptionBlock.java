@@ -16,6 +16,4 @@ public class VirtualReceptionBlock extends CommonElement{
         WaitService.waitForVisibilityOfElement(fullNameInput);
         fullNameInput.sendKeys(user.getName());
     }
-
-
 }
