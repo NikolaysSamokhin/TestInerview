@@ -11,7 +11,7 @@ public class VirtualReceptionGenerator {
                 "Test Testov Testovich",
                 "432343434",
                 "example@yandex.com",
-                "test region",
+                "г.Ташкент",
                 "test address",
                 "Физическое лицо",
                 "Мужчина",

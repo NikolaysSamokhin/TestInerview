@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 
 public class CheckVirtualReceptionSmokeTest extends BaseTest{
     private VirtualReceptionPage virtualReceptionPage;
-    private ResourceBundle resource = ResourceBundle.getBundle("config");
     private static final Logger LOG = Logger.getLogger(CheckVirtualReceptionSmokeTest.class);
 
     @BeforeClass
@@ -24,8 +23,18 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
     public void smokeTest(VirtualReceptionForm virtualReceptionForm) throws InterruptedException {
         LOG.info("start ''");
 
-        virtualReceptionPage.setFullName(virtualReceptionForm.getFullName());
-
+        virtualReceptionPage
+                .setFullName(virtualReceptionForm.getFullName())
+                .setContactPhoneNumber(virtualReceptionForm.getContactPhoneNumber())
+              //  .setRegion(virtualReceptionForm.getRegion())
+                .setAddress(virtualReceptionForm.getAddress())
+             //   .setSubjectType(virtualReceptionForm.getSubjectType())
+           //     .setGender(virtualReceptionForm.getGender())
+                //.setDateOfBirth(virtualReceptionForm.getDateOfBirth())
+             //   .setTypeOfAppeal(virtualReceptionForm.getTypeOfAppeal())
+              //  .setStatusInput(virtualReceptionForm.getStatus())
+                .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal())
+                .clickOnSendButton();
     }
 
     @DataProvider(name = "smoke-data-provider")

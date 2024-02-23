@@ -13,7 +13,7 @@
           <include name="startBrowser"/>
           <include name="setup"/>
           <include name="closeBrowser"/>
-          <include name="smokeTest"/>
+          <include name="smokeTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- org.testinterview.tests.CheckVirtualReceptionSmokeTest -->
     </classes>

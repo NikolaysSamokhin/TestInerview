@@ -77,4 +77,12 @@ public class VirtualReceptionPage extends AbstractPage{
         return this;
     }
 
+    public VirtualReceptionPage clickOnSendButton() {
+        LOG.trace("click on send button");
+
+        virtualReceptionBlock.clickOnSendButton();
+        return this;
+    }
+
+
 }

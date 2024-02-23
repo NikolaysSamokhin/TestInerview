@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeTest;
 public class BaseTest {
     private static final Logger LOG = Logger.getLogger(BaseTest.class);
     protected WebDriver driver;
-    private ResourceBundle resource = ResourceBundle.getBundle("config");
+    protected ResourceBundle resource = ResourceBundle.getBundle("config");
 
     @BeforeTest
     public void startBrowser() {

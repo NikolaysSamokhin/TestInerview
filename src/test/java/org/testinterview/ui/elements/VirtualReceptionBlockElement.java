@@ -49,10 +49,10 @@ public class VirtualReceptionBlockElement extends CommonElement{
     private TextInput statusInput;
 
     @Name("Текст обращения")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Текст обращения']")
+    @FindBy(xpath = "//div[@class='v-input__slot']//textarea[@aria-label='Текст обращения']")
     private TextInput textOfAppealInput;
 
-    @Name("Текст обращения")
+    @Name("Отправить")
     @FindBy(xpath = "//button[.//div[contains(text(), 'Отправить')]]")
     private Button sendButton;
 
@@ -64,7 +64,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
     public void setContactPhoneNumber(String contactPhoneNumber) {
         WaitService.waitForVisibilityOfElement(contactPhoneNumberInput);
 
-        dateOfBirthInput.clear();
+        contactPhoneNumberInput.clear();
         contactPhoneNumberInput.sendKeys(contactPhoneNumber);
     }
 
@@ -77,20 +77,20 @@ public class VirtualReceptionBlockElement extends CommonElement{
     public void setRegion(String region) {
         WaitService.waitForVisibilityOfElement(regionInput);
 
-        dateOfBirthInput.clear();
+        regionInput.clear();
         regionInput.sendKeys(region);
     }
 
     public void setAddress(String address) {
         WaitService.waitForVisibilityOfElement(addressInput);
 
-        dateOfBirthInput.clear();
+        addressInput.clear();
         addressInput.sendKeys(address);
     }
 
     public void setSubjectType(String subjectType) {
         WaitService.waitForVisibilityOfElement(addressInput);
-        dateOfBirthInput.clear();
+        subjectTypeInput.clear();
 
         subjectTypeInput.sendKeys(subjectType);
     }
@@ -121,11 +121,11 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setTextOfAppeal(String textOfAppeal) {
         WaitService.waitForVisibilityOfElement(textOfAppealInput);
-        statusInput.sendKeys(textOfAppeal);
+        textOfAppealInput.sendKeys(textOfAppeal);
     }
 
-    public void ClickOnSendButton() {
-        WaitService.waitUntilElementToBeClickable(sendButton);
+    public void clickOnSendButton() {
+        WaitService.waitForVisibilityOfElement(sendButton);
         sendButton.click();
     }
 }
