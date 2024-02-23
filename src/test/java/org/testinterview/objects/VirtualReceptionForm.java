@@ -138,7 +138,7 @@ public class VirtualReceptionForm {
             return this;
         }
 
-        public VirtualReceptionFormBuilder setEmail(String email) {
+        public VirtualReceptionFormBuilder email(String email) {
             this.email = email;
             return this;
         }
@@ -163,7 +163,7 @@ public class VirtualReceptionForm {
             return this;
         }
 
-        public VirtualReceptionFormBuilder setDateOfBirth(String dateOfBirth) {
+        public VirtualReceptionFormBuilder dateOfBirth(String dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
             return this;
         }

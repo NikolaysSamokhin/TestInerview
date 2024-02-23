@@ -1,6 +1,7 @@
 package org.testinterview.tests;
 
 import org.apache.log4j.Logger;
+import org.testinterview.generators.VirtualReceptionGenerator;
 import org.testinterview.objects.User;
 import org.testinterview.ui.pages.VirtualReceptionPage;
 import org.testng.annotations.BeforeClass;
@@ -31,6 +32,6 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
 
     @DataProvider(name = "smoke-data-provider")
     public Object[][] smokeDataProvider(){
-        return new Object[][] { {new User("1234", "4567", "4343535")}};
+        return new Object[][] { { VirtualReceptionGenerator.VirtualReceptionTestDataGenerator()}};
     }
 }
