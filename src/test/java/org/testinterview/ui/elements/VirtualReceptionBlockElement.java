@@ -1,7 +1,10 @@
 package org.testinterview.ui.elements;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.FindBy;
 import org.testinterview.service.WaitService;
+import org.testinterview.ui.elements.elementspage.DatePicker;
+import org.testinterview.webdriver.DriverManager;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
@@ -38,7 +41,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     @Name("Дата рождения")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Дата рождения']")
-    private TextInput dateOfBirthInput;
+    private DatePicker dateOfBirthInput;
 
     @Name("Тип обращения")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Тип обращения']")
@@ -70,14 +73,10 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setEmail(String email) {
         WaitService.waitForVisibilityOfElement(emailInput);
-
-        dateOfBirthInput.clear();
         emailInput.sendKeys(email);    }
 
     public void setRegion(String region) {
         WaitService.waitForVisibilityOfElement(regionInput);
-
-        regionInput.clear();
         regionInput.sendKeys(region);
     }
 
@@ -90,23 +89,18 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setSubjectType(String subjectType) {
         WaitService.waitForVisibilityOfElement(addressInput);
-        subjectTypeInput.clear();
-
         subjectTypeInput.sendKeys(subjectType);
     }
 
     public void setGender(String gender) {
         WaitService.waitForVisibilityOfElement(genderInput);
-        dateOfBirthInput.clear();
 
         genderInput.sendKeys(gender);
     }
 
     public void setDateOfBirth(String dateOfBirth) {
         WaitService.waitForVisibilityOfElement(dateOfBirthInput);
-        dateOfBirthInput.clear();
-
-        dateOfBirthInput.sendKeys(dateOfBirth);
+        dateOfBirthInput.setDate(dateOfBirth);
     }
 
     public void setTypeOfAppeal(String typeOfAppeal) {
@@ -125,7 +119,9 @@ public class VirtualReceptionBlockElement extends CommonElement{
     }
 
     public void clickOnSendButton() {
-        WaitService.waitForVisibilityOfElement(sendButton);
-        sendButton.click();
+        //WaitService.waitForVisibilityOfElement(sendButton);
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+        //    sendButton.click();
+        js.executeScript("arguments[0].click();", sendButton);
     }
 }

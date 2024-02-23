@@ -26,15 +26,18 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
         virtualReceptionPage
                 .setFullName(virtualReceptionForm.getFullName())
                 .setContactPhoneNumber(virtualReceptionForm.getContactPhoneNumber())
-              //  .setRegion(virtualReceptionForm.getRegion())
+                .setRegion(virtualReceptionForm.getRegion())
+                .setEmail(virtualReceptionForm.getEmail())
                 .setAddress(virtualReceptionForm.getAddress())
-             //   .setSubjectType(virtualReceptionForm.getSubjectType())
-           //     .setGender(virtualReceptionForm.getGender())
-                //.setDateOfBirth(virtualReceptionForm.getDateOfBirth())
-             //   .setTypeOfAppeal(virtualReceptionForm.getTypeOfAppeal())
-              //  .setStatusInput(virtualReceptionForm.getStatus())
+                .setSubjectType(virtualReceptionForm.getSubjectType())
+                .setGender(virtualReceptionForm.getGender())
+                .setDateOfBirth(virtualReceptionForm.getDateOfBirth())
+                .setTypeOfAppeal(virtualReceptionForm.getTypeOfAppeal())
+                .setStatusInput(virtualReceptionForm.getStatus())
                 .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal())
                 .clickOnSendButton();
+
+        Thread.sleep(5000);
     }
 
     @DataProvider(name = "smoke-data-provider")

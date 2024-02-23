@@ -28,6 +28,13 @@ public class VirtualReceptionPage extends AbstractPage{
         return this;
     }
 
+    public VirtualReceptionPage setEmail(String email) {
+        LOG.trace(String.format("write down an email %s", email));
+        
+        virtualReceptionBlock.setEmail(email);
+        return this;
+    }
+
     public VirtualReceptionPage setAddress(String address) {
         LOG.trace(String.format("write down an address %s", address));
 

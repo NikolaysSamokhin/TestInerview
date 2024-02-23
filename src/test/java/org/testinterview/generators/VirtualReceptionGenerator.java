@@ -15,7 +15,7 @@ public class VirtualReceptionGenerator {
                 "test address",
                 "Физическое лицо",
                 "Мужчина",
-                "1989-03-13",
+                "1992-05-06",
                 "Заявление",
                 "Занят-работаю",
                 textOfAppeal
