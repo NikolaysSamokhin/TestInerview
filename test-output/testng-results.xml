@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-23T13:32:13Z" name="Smoke Test" finished-at="2024-02-23T13:32:31Z" duration-ms="18447">
+    <groups>
+    </groups>
+    <test started-at="2024-02-23T13:32:13Z" name="VirtualReception" finished-at="2024-02-23T13:32:31Z" duration-ms="18447">
+      <class name="org.testinterview.tests.CheckVirtualReceptionSmokeTest">
+        <test-method is-config="true" signature="startBrowser()[pri:0, instance:org.testinterview.tests.CheckVirtualReceptionSmokeTest@a514af7]" started-at="2024-02-23T17:32:13Z" name="startBrowser" finished-at="2024-02-23T17:32:20Z" duration-ms="7008" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.testinterview.tests.CheckVirtualReceptionSmokeTest@a514af7]" started-at="2024-02-23T17:32:20Z" name="setup" finished-at="2024-02-23T17:32:20Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="setFullName()[pri:0, instance:org.testinterview.tests.CheckVirtualReceptionSmokeTest@a514af7]" started-at="2024-02-23T17:32:20Z" name="setFullName" finished-at="2024-02-23T17:32:30Z" duration-ms="10328" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setFullName -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.testinterview.tests.CheckVirtualReceptionSmokeTest@a514af7]" started-at="2024-02-23T17:32:30Z" name="closeBrowser" finished-at="2024-02-23T17:32:31Z" duration-ms="1101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- org.testinterview.tests.CheckVirtualReceptionSmokeTest -->
+    </test> <!-- VirtualReception -->
+  </suite> <!-- Smoke Test -->
+</testng-results>
