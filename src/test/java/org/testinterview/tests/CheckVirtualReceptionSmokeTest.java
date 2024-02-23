@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.testinterview.objects.User;
 import org.testinterview.ui.pages.VirtualReceptionPage;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.ResourceBundle;
@@ -19,12 +20,17 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
         user = new User("TestName","LastName","SecondName");
     }
 
-    @Test
-    public void setFullName() throws InterruptedException {
+    @Test(dataProvider = "smoke-data-provider")
+    public void smokeTest(User userc) throws InterruptedException {
         LOG.info("start ''");
         Thread.sleep(5000);
         VirtualReceptionPage virtualReceptionPage = new VirtualReceptionPage();
-        virtualReceptionPage.SetFullName(user);
+        virtualReceptionPage.SetFullName(userc);
         Thread.sleep(5000);
+    }
+
+    @DataProvider(name = "smoke-data-provider")
+    public Object[][] smokeDataProvider(){
+        return new Object[][] { {new User("1234", "4567", "4343535")}};
     }
 }

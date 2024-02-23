@@ -3,7 +3,7 @@
 <suite name="Smoke Test" parallel="tests" thread-count="2">
     <test name="VirtualReception">
         <classes>
-            <class name="org.testinterview.tests.CheckVirtualReceptionSmokeTest" />
+            <class name="org.testinterview.tests.CheckVirtualReceptionSmokeTest"  />
         </classes>
     </test>
 

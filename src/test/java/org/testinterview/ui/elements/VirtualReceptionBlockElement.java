@@ -63,50 +63,69 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setContactPhoneNumber(String contactPhoneNumber) {
         WaitService.waitForVisibilityOfElement(contactPhoneNumberInput);
+
+        dateOfBirthInput.clear();
         contactPhoneNumberInput.sendKeys(contactPhoneNumber);
     }
 
     public void setEmail(String email) {
         WaitService.waitForVisibilityOfElement(emailInput);
+
+        dateOfBirthInput.clear();
         emailInput.sendKeys(email);    }
 
     public void setRegion(String region) {
         WaitService.waitForVisibilityOfElement(regionInput);
+
+        dateOfBirthInput.clear();
         regionInput.sendKeys(region);
     }
 
     public void setAddress(String address) {
         WaitService.waitForVisibilityOfElement(addressInput);
+
+        dateOfBirthInput.clear();
         addressInput.sendKeys(address);
     }
 
     public void setSubjectType(String subjectType) {
         WaitService.waitForVisibilityOfElement(addressInput);
+        dateOfBirthInput.clear();
+
         subjectTypeInput.sendKeys(subjectType);
     }
 
     public void setGender(String gender) {
         WaitService.waitForVisibilityOfElement(genderInput);
+        dateOfBirthInput.clear();
+
         genderInput.sendKeys(gender);
     }
 
-    public void setDateOfBirth(TextInput dateOfBirthInput) {
-        this.dateOfBirthInput = dateOfBirthInput;
+    public void setDateOfBirth(String dateOfBirth) {
+        WaitService.waitForVisibilityOfElement(dateOfBirthInput);
+        dateOfBirthInput.clear();
+
+        dateOfBirthInput.sendKeys(dateOfBirth);
     }
 
-    public void setTypeOfAppealInput(TextInput typeOfAppealInput) {
-        this.typeOfAppealInput = typeOfAppealInput;
+    public void setTypeOfAppeal(String typeOfAppeal) {
+        WaitService.waitForVisibilityOfElement(typeOfAppealInput);
+        typeOfAppealInput.sendKeys(typeOfAppeal);
     }
 
-    public void setStatusInput(TextInput statusInput) {
-        this.statusInput = statusInput;
+    public void setStatusInput(String status) {
+        WaitService.waitForVisibilityOfElement(statusInput);
+        statusInput.sendKeys(status);
     }
 
-    public void setTextOfAppealInput(TextInput textOfAppealInput) {
-        this.textOfAppealInput = textOfAppealInput;
+    public void setTextOfAppeal(String textOfAppeal) {
+        WaitService.waitForVisibilityOfElement(textOfAppealInput);
+        statusInput.sendKeys(textOfAppeal);
     }
 
-    public void setSendButton(Button sendButton) {
-        this.sendButton = sendButton;
+    public void ClickOnSendButton() {
+        WaitService.waitUntilElementToBeClickable(sendButton);
+        sendButton.click();
     }
 }
