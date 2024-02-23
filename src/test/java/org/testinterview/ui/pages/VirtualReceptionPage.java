@@ -10,7 +10,7 @@ public class VirtualReceptionPage extends AbstractPage{
     VirtualReceptionBlockElement virtualReceptionBlock;
 
     public VirtualReceptionPage SetFullName(User user) {
-        virtualReceptionBlock.setFullName(user);
+        virtualReceptionBlock.setFullName(user.getName());
         return this;
     }
 

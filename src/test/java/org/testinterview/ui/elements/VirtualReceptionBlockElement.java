@@ -1,7 +1,6 @@
 package org.testinterview.ui.elements;
 
 import org.openqa.selenium.support.FindBy;
-import org.testinterview.objects.User;
 import org.testinterview.service.WaitService;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
@@ -71,23 +70,27 @@ public class VirtualReceptionBlockElement extends CommonElement{
         WaitService.waitForVisibilityOfElement(emailInput);
         emailInput.sendKeys(email);    }
 
-    public void setRegionInput(TextInput regionInput) {
-        this.regionInput = regionInput;
+    public void setRegion(String region) {
+        WaitService.waitForVisibilityOfElement(regionInput);
+        regionInput.sendKeys(region);
     }
 
-    public void setAddressInput(TextInput addressInput) {
-        this.addressInput = addressInput;
+    public void setAddress(String address) {
+        WaitService.waitForVisibilityOfElement(addressInput);
+        addressInput.sendKeys(address);
     }
 
-    public void setSubjectTypeInput(TextInput subjectTypeInput) {
-        this.subjectTypeInput = subjectTypeInput;
+    public void setSubjectType(String subjectType) {
+        WaitService.waitForVisibilityOfElement(addressInput);
+        subjectTypeInput.sendKeys(subjectType);
     }
 
-    public void setGenderInput(TextInput genderInput) {
-        this.genderInput = genderInput;
+    public void setGender(String gender) {
+        WaitService.waitForVisibilityOfElement(genderInput);
+        genderInput.sendKeys(gender);
     }
 
-    public void setDateOfBirthInput(TextInput dateOfBirthInput) {
+    public void setDateOfBirth(TextInput dateOfBirthInput) {
         this.dateOfBirthInput = dateOfBirthInput;
     }
 
