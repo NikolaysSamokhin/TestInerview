@@ -186,7 +186,6 @@ public class VirtualReceptionForm {
         public VirtualReceptionForm build() {
             VirtualReceptionForm virtualReceptionForm = new VirtualReceptionForm(this);
             return virtualReceptionForm;
-
         }
     }
 }

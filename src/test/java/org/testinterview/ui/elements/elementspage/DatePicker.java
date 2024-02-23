@@ -1,8 +1,10 @@
 package org.testinterview.ui.elements.elementspage;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testinterview.service.WaitService;
+import org.testinterview.webdriver.DriverManager;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 import java.text.ParseException;
@@ -12,8 +14,11 @@ import java.util.Date;
 
 public class DatePicker extends TypifiedElement {
 
+    private final  JavascriptExecutor javascriptExecutor ;
+
     public DatePicker(WebElement wrappedElement) {
         super(wrappedElement);
+        this.javascriptExecutor = (JavascriptExecutor) DriverManager.getDriver();
     }
 
     public void setDate(String dateCalendar) {
@@ -30,18 +35,25 @@ public class DatePicker extends TypifiedElement {
     }
 
     public void setYear(String year) {
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//ul[contains(@class, 'date-picker-years')]//li[contains(text(), '%s')]", year));
+
         WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//ul[contains(@class, 'date-picker-years')]//li[contains(text(), '%s')]", year)));
-        webElement.click();
+        javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 
     public void setMonth(String month) {
-        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class, 'date-picker-table--month')]//table//tr//button[.//div[contains(text(), 'Янв.')]]", month)));
-        webElement.click();
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class, 'date-picker-table--month')]//table//tr//button[.//div[contains(text(), '%s')]]", month));
+
+        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class, 'date-picker-table--month')]//table//tr//button[.//div[contains(text(), '%s')]]", month)));
+
+        javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 
     public void setDay(String day) {
-        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//ul[contains(@class, 'date-picker-years')]//li[contains(text(), '%s')]", month)));
-        webElement.click();
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class, 'date-picker-table--date')]//table//tr//button[.//div[text()= '%s']]", day));
+        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class, 'date-picker-table--date')]//table//tr//button[.//div[text()= '%s']]", day)));
+
+        javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 
     private String getNameOfMonth(int month) {
@@ -71,6 +83,7 @@ public class DatePicker extends TypifiedElement {
             case 12:
                 return "Дек.";
         }
+
         return "";
     }
 

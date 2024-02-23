@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.FindBy;
 import org.testinterview.service.WaitService;
 import org.testinterview.ui.elements.elementspage.DatePicker;
+import org.testinterview.ui.elements.elementspage.DropDown;
 import org.testinterview.webdriver.DriverManager;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
@@ -25,7 +26,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     @Name("Регион")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Регион']")
-    private TextInput regionInput;
+    private DropDown regionInput;
 
     @Name("Адрес")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Адрес']")
@@ -33,11 +34,11 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     @Name("Тип субъекта")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Тип субъекта']")
-    private TextInput subjectTypeInput;
+    private DropDown subjectTypeInput;
 
     @Name("Пол")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Пол']")
-    private TextInput genderInput;
+    private DropDown genderInput;
 
     @Name("Дата рождения")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Дата рождения']")
@@ -45,11 +46,11 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     @Name("Тип обращения")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Тип обращения']")
-    private TextInput typeOfAppealInput;
+    private DropDown typeOfAppealInput;
 
     @Name("Статус")
     @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Статус']")
-    private TextInput statusInput;
+    private DropDown statusInput;
 
     @Name("Текст обращения")
     @FindBy(xpath = "//div[@class='v-input__slot']//textarea[@aria-label='Текст обращения']")
@@ -119,9 +120,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
     }
 
     public void clickOnSendButton() {
-        //WaitService.waitForVisibilityOfElement(sendButton);
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
-        //    sendButton.click();
         js.executeScript("arguments[0].click();", sendButton);
     }
 }

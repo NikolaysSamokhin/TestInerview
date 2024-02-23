@@ -6,16 +6,4 @@
       <class name="org.testinterview.tests.CheckVirtualReceptionSmokeTest"/>
     </classes>
   </test> <!-- VirtualReception -->
-  <test name="VirtualReception(failed)">
-    <classes>
-      <class name="org.testinterview.tests.CheckVirtualReceptionSmokeTest">
-        <methods>
-          <include name="startBrowser"/>
-          <include name="setup"/>
-          <include name="closeBrowser"/>
-          <include name="smokeTest" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- org.testinterview.tests.CheckVirtualReceptionSmokeTest -->
-    </classes>
-  </test> <!-- VirtualReception(failed) -->
 </suite> <!-- Failed suite [Smoke Test] -->
