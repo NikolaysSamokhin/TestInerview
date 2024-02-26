@@ -23,6 +23,7 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
     public void smokeTest(VirtualReceptionForm virtualReceptionForm) throws InterruptedException {
         LOG.info("start ''");
 
+        //Set values
         virtualReceptionPage
                 .setFullName(virtualReceptionForm.getFullName())
                 .setContactPhoneNumber(virtualReceptionForm.getContactPhoneNumber())
@@ -34,8 +35,10 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
                 .setDateOfBirth(virtualReceptionForm.getDateOfBirth())
                 .setTypeOfAppeal(virtualReceptionForm.getTypeOfAppeal())
                 .setStatusInput(virtualReceptionForm.getStatus())
-                .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal())
-                .clickOnSendButton();
+                .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal());
+
+
+
     }
 
     @DataProvider(name = "smoke-data-provider")

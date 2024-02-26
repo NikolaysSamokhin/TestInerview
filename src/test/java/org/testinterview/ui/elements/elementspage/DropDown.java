@@ -19,8 +19,13 @@ public class DropDown extends TypifiedElement {
         WaitService.waitForVisibilityOfElement(getWrappedElement());
         javascriptExecutor.executeScript("arguments[0].click();",  getWrappedElement());
 
-        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class,'select-list')]//div[@role='listitem']//div[contains(text(), '%s')]", value));
-        WebElement webElement =  getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class,'select-list')]//div[@role='listitem']//div[contains(text(), '%s')]", value)));
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class,'select-list')]" +
+                "//div[@role='listitem']//div[contains(text(), '%s')]", value));
+
+        WebElement webElement =  getWrappedElement().findElement(By.xpath(String
+                .format("//div[contains(@class,'select-list')]//div[@role='listitem']" +
+                        "//div[contains(text(), '%s')]", value)));
+
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 }

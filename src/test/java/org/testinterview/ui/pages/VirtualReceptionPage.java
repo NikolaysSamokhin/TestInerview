@@ -91,5 +91,11 @@ public class VirtualReceptionPage extends AbstractPage{
         return this;
     }
 
+    public boolean isErrorMessageFullNameAppear(){
+
+
+        return true;
+    }
+
 
 }

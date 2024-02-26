@@ -1,13 +1,10 @@
 package org.testinterview.ui.elements;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testinterview.service.WaitService;
 import org.testinterview.ui.elements.elementspage.DatePicker;
 import org.testinterview.ui.elements.elementspage.DropDown;
-import org.testinterview.webdriver.DriverManager;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
@@ -15,55 +12,107 @@ import ru.yandex.qatools.htmlelements.element.TextInput;
 @FindBy(xpath = "//form[@class='v-form']")
 public class VirtualReceptionBlockElement extends CommonElement{
     @Name("ФИО")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Ф И О']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Ф И О']")
     private TextInput fullNameInput;
 
     @Name("Контактный телефон")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Контактный телефон']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Контактный телефон']")
     private TextInput contactPhoneNumberInput;
 
     @Name("Электронная почта")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Электронная почта']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Электронная почта']")
     private TextInput emailInput;
 
     @Name("Регион")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Регион']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Регион']")
     private DropDown regionInput;
 
     @Name("Адрес")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Адрес']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Адрес']")
     private TextInput addressInput;
 
     @Name("Тип субъекта")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Тип субъекта']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Тип субъекта']")
     private DropDown subjectTypeInput;
 
     @Name("Пол")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Пол']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Пол']")
     private DropDown genderInput;
 
     @Name("Дата рождения")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Дата рождения']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Дата рождения']")
     private DatePicker dateOfBirthInput;
 
     @Name("Тип обращения")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Тип обращения']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Тип обращения']")
     private DropDown typeOfAppealInput;
 
     @Name("Статус")
-    @FindBy(xpath = "//div[@class='v-input__slot']//input[@aria-label='Статус']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Статус']")
     private DropDown statusInput;
 
     @Name("Текст обращения")
-    @FindBy(xpath = "//div[@class='v-input__slot']//textarea[@aria-label='Текст обращения']")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//textarea[@aria-label='Текст обращения']")
     private TextInput textOfAppealInput;
 
     @Name("Отправить")
     @FindBy(xpath = "//form[@class='v-form']//button[.//div[contains(text(), 'Отправить')]]")
     private Button sendButton;
 
+    //Error messages
+    @Name("Error Message Full Name Incorrect Value")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Ф И О']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private TextInput fullNameIncorrectValueErrorMessage;
+
+    @Name("Error Message Phone Number")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Контактный телефон']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private TextInput contactPhoneNumberErrorMessage;
+
+    @Name("Error Message Email")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Электронная почта']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private TextInput emailErrorMessage;
+
+    @Name("Region Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Регион']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private DropDown regionErrorMessage;
+
+    @Name("Address Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Адрес']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private TextInput addressErrorMessage;
+
+    @Name("Subject Type Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Тип субъекта']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private DropDown subjectTypeErrorMessage;
+
+    @Name("Gender Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Пол']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private DropDown genderErrorMessage;
+
+    @Name("Date Of Birth")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Дата рождения']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private DatePicker dateOfBirthErrorMessage;
+
+    @Name("Type Of Appeal Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Тип обращения']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private DropDown typeOfAppealErrorMessage;
+
+    @Name("Status Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Статус']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private DropDown statusErrorMessage;
+
     public void setFullName(String fullName) {
-        WaitService.waitForVisibilityOfElement((WebElement) fullNameInput);
+        WaitService.waitForVisibilityOfElement(fullNameInput);
+
         fullNameInput.sendKeys(fullName);
     }
 
@@ -76,10 +125,12 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setEmail(String email) {
         WaitService.waitForVisibilityOfElement(emailInput);
+
         emailInput.sendKeys(email);    }
 
     public void setRegion(String region) {
         WaitService.waitForVisibilityOfElement(regionInput);
+
         regionInput.setValue(region);
     }
 
@@ -92,6 +143,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setSubjectType(String subjectType) {
         WaitService.waitForVisibilityOfElement(addressInput);
+
         subjectTypeInput.setValue(subjectType);
     }
 
@@ -103,26 +155,31 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setDateOfBirth(String dateOfBirth) {
         WaitService.waitForVisibilityOfElement(dateOfBirthInput);
+
         dateOfBirthInput.setDate(dateOfBirth);
     }
 
     public void setTypeOfAppeal(String typeOfAppeal) {
         WaitService.waitForVisibilityOfElement(typeOfAppealInput);
+
         typeOfAppealInput.setValue(typeOfAppeal);
     }
 
     public void setStatusInput(String status) {
         WaitService.waitForVisibilityOfElement(statusInput);
+
         statusInput.setValue(status);
     }
 
     public void setTextOfAppeal(String textOfAppeal) {
         WaitService.waitForVisibilityOfElement(textOfAppealInput);
+
         textOfAppealInput.sendKeys(textOfAppeal);
     }
 
     public void clickOnSendButton() {
         WaitService.waitForVisibilityOfElement(sendButton);
+
         sendButton.click();
     }
 }
