@@ -17,7 +17,7 @@ public class DropDown extends TypifiedElement {
 
     public void setValue(String value) {
         WaitService.waitForVisibilityOfElement(getWrappedElement());
-        getWrappedElement().click();
+        javascriptExecutor.executeScript("arguments[0].click();",  getWrappedElement());
 
         WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class,'select-list')]//div[@role='listitem']//div[contains(text(), '%s')]", value));
         WebElement webElement =  getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class,'select-list')]//div[@role='listitem']//div[contains(text(), '%s')]", value)));

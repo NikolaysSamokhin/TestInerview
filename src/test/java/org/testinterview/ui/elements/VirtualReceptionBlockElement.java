@@ -1,6 +1,8 @@
 package org.testinterview.ui.elements;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testinterview.service.WaitService;
 import org.testinterview.ui.elements.elementspage.DatePicker;
@@ -57,16 +59,16 @@ public class VirtualReceptionBlockElement extends CommonElement{
     private TextInput textOfAppealInput;
 
     @Name("Отправить")
-    @FindBy(xpath = "//button[.//div[contains(text(), 'Отправить')]]")
+    @FindBy(xpath = "//form[@class='v-form']//button[.//div[contains(text(), 'Отправить')]]")
     private Button sendButton;
 
     public void setFullName(String fullName) {
-        WaitService.waitForVisibilityOfElement(fullNameInput);
+        WaitService.waitForVisibilityOfElement((WebElement) fullNameInput);
         fullNameInput.sendKeys(fullName);
     }
 
     public void setContactPhoneNumber(String contactPhoneNumber) {
-        WaitService.waitForVisibilityOfElement(contactPhoneNumberInput);
+        WaitService.waitForVisibilityOfElement(contactPhoneNumberInput.getWrappedElement());
 
         contactPhoneNumberInput.clear();
         contactPhoneNumberInput.sendKeys(contactPhoneNumber);
@@ -78,7 +80,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setRegion(String region) {
         WaitService.waitForVisibilityOfElement(regionInput);
-        regionInput.sendKeys(region);
+        regionInput.setValue(region);
     }
 
     public void setAddress(String address) {
@@ -90,13 +92,13 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setSubjectType(String subjectType) {
         WaitService.waitForVisibilityOfElement(addressInput);
-        subjectTypeInput.sendKeys(subjectType);
+        subjectTypeInput.setValue(subjectType);
     }
 
     public void setGender(String gender) {
         WaitService.waitForVisibilityOfElement(genderInput);
 
-        genderInput.sendKeys(gender);
+        genderInput.setValue(gender);
     }
 
     public void setDateOfBirth(String dateOfBirth) {
@@ -106,12 +108,12 @@ public class VirtualReceptionBlockElement extends CommonElement{
 
     public void setTypeOfAppeal(String typeOfAppeal) {
         WaitService.waitForVisibilityOfElement(typeOfAppealInput);
-        typeOfAppealInput.sendKeys(typeOfAppeal);
+        typeOfAppealInput.setValue(typeOfAppeal);
     }
 
     public void setStatusInput(String status) {
         WaitService.waitForVisibilityOfElement(statusInput);
-        statusInput.sendKeys(status);
+        statusInput.setValue(status);
     }
 
     public void setTextOfAppeal(String textOfAppeal) {
@@ -120,7 +122,7 @@ public class VirtualReceptionBlockElement extends CommonElement{
     }
 
     public void clickOnSendButton() {
-        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
-        js.executeScript("arguments[0].click();", sendButton);
+        WaitService.waitForVisibilityOfElement(sendButton);
+        sendButton.click();
     }
 }

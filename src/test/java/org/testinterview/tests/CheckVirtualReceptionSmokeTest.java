@@ -36,8 +36,6 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
                 .setStatusInput(virtualReceptionForm.getStatus())
                 .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal())
                 .clickOnSendButton();
-
-        Thread.sleep(5000);
     }
 
     @DataProvider(name = "smoke-data-provider")

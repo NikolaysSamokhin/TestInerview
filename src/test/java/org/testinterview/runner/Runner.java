@@ -47,11 +47,7 @@ public class Runner {
         }
         catch (TestNGRunException ex) {
             throw new TestNGRunException(ERROR + ex.getMessage());
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
             throw new RuntimeException(e);
         }
     }

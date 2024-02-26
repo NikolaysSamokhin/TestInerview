@@ -1,9 +1,13 @@
 package org.testinterview.webdriver;
 
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -18,11 +22,11 @@ public class DriverFactory {
 
         switch (resource.getString("driverType")) {
             case "chrome":
-                DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
+                ChromeOptions options = new ChromeOptions();
+                options.setBinary(new File(CHROME_DRIVER_PATH));
 
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
-                chromeCapabilities.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
-                driver = new ChromeDriver(chromeCapabilities);
+                driver = new ChromeDriver();
                 break;
             default:
                 driver = new ChromeDriver();

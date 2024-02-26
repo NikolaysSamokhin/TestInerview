@@ -1,5 +1,6 @@
 package org.testinterview.ui.pages;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testinterview.webdriver.DriverManager;
@@ -13,6 +14,6 @@ public abstract class AbstractPage {
         if (driver == null) {
             driver =  DriverManager.getDriver();
         }
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
+        PageFactory.initElements(new HtmlElementDecorator( new HtmlElementLocatorFactory(driver)), this);
     }
 }
