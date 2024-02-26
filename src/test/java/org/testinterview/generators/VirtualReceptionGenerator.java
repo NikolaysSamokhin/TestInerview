@@ -4,8 +4,9 @@ import org.testinterview.objects.VirtualReceptionForm;
 
 public class VirtualReceptionGenerator {
     private static final String textOfAppeal = "fffff2353422ffffff343242ffffffewfwefsdzdcxzваываывававыыыыыыыыыыыыыыы" +
-                                        "4к43534йейкпаывфпафыdwqdwqeqw111!!!@#*&&^%%&*(())_+_=-0097?>><<";
-    public static VirtualReceptionForm VirtualReceptionTestDataGenerator(){
+            "4к43534йейкпаывфпафыdwqdwqeqw111!!!@#*&&^%%&*(())_+_=-0097?>><<";
+
+    public static VirtualReceptionForm VirtualReceptionTestDataGenerator() {
 
         return VirtualReceptionTestDataGenerator(
                 "Test Testov Testovich",
@@ -23,19 +24,18 @@ public class VirtualReceptionGenerator {
     }
 
     public static VirtualReceptionForm VirtualReceptionTestDataGenerator(
-                                                                            String fullName,
-                                                                            String contactPhoneNumber,
-                                                                            String email,
-                                                                            String region,
-                                                                            String address,
-                                                                            String subjectType,
-                                                                            String gender,
-                                                                            String dateOfBirth,
-                                                                            String typeOfAppeal,
-                                                                            String status,
-                                                                            String textOfAppeal
-                                                                        )
-    {
+            String fullName,
+            String contactPhoneNumber,
+            String email,
+            String region,
+            String address,
+            String subjectType,
+            String gender,
+            String dateOfBirth,
+            String typeOfAppeal,
+            String status,
+            String textOfAppeal
+    ) {
         return new VirtualReceptionForm.VirtualReceptionFormBuilder()
                 .fullName(fullName)
                 .contactPhoneNumber(contactPhoneNumber)

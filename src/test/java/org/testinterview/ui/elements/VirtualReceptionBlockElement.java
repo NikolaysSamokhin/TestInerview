@@ -1,6 +1,5 @@
 package org.testinterview.ui.elements;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testinterview.service.WaitService;
 import org.testinterview.ui.elements.elementspage.DatePicker;
@@ -10,7 +9,7 @@ import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 @FindBy(xpath = "//form[@class='v-form']")
-public class VirtualReceptionBlockElement extends CommonElement{
+public class VirtualReceptionBlockElement extends CommonElement {
     @Name("ФИО")
     @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Ф И О']")
     private TextInput fullNameInput;
@@ -126,7 +125,8 @@ public class VirtualReceptionBlockElement extends CommonElement{
     public void setEmail(String email) {
         WaitService.waitForVisibilityOfElement(emailInput);
 
-        emailInput.sendKeys(email);    }
+        emailInput.sendKeys(email);
+    }
 
     public void setRegion(String region) {
         WaitService.waitForVisibilityOfElement(regionInput);
@@ -181,5 +181,41 @@ public class VirtualReceptionBlockElement extends CommonElement{
         WaitService.waitForVisibilityOfElement(sendButton);
 
         sendButton.click();
+    }
+
+    public String getFullNameErrorMessage() {
+        return fullNameIncorrectValueErrorMessage.getText();
+    }
+
+    public String getContactPhoneNumberErrorMessage() {
+        return contactPhoneNumberErrorMessage.getText();
+    }
+
+    public String getEmailErrorMessage() {
+        return emailErrorMessage.getText();
+    }
+
+    public String getRegionErrorMessage() {
+        return regionErrorMessage.getText();
+    }
+
+    public String getAddressErrorMessage() {
+        return addressErrorMessage.getText();
+    }
+
+    public String getSubjectTypeErrorMessage() {
+        return subjectTypeErrorMessage.getText();
+    }
+
+    public String getGenderErrorMessage() {
+        return genderErrorMessage.getText();
+    }
+
+    public String getDateOfBirthErrorMessage() {
+        return dateOfBirthErrorMessage.getText();
+    }
+
+    public String getTypeOfAppealErrorMessage() {
+        return typeOfAppealErrorMessage.getText();
     }
 }

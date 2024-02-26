@@ -8,7 +8,7 @@ import org.testinterview.webdriver.DriverManager;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 public class DropDown extends TypifiedElement {
-    private final JavascriptExecutor javascriptExecutor ;
+    private final JavascriptExecutor javascriptExecutor;
 
     public DropDown(WebElement wrappedElement) {
         super(wrappedElement);
@@ -17,12 +17,12 @@ public class DropDown extends TypifiedElement {
 
     public void setValue(String value) {
         WaitService.waitForVisibilityOfElement(getWrappedElement());
-        javascriptExecutor.executeScript("arguments[0].click();",  getWrappedElement());
+        javascriptExecutor.executeScript("arguments[0].click();", getWrappedElement());
 
         WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class,'select-list')]" +
                 "//div[@role='listitem']//div[contains(text(), '%s')]", value));
 
-        WebElement webElement =  getWrappedElement().findElement(By.xpath(String
+        WebElement webElement = getWrappedElement().findElement(By.xpath(String
                 .format("//div[contains(@class,'select-list')]//div[@role='listitem']" +
                         "//div[contains(text(), '%s')]", value)));
 

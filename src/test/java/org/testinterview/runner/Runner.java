@@ -7,9 +7,7 @@ import org.testinterview.exceptions.TestNGRunException;
 import org.testng.TestNG;
 import org.testng.xml.Parser;
 import org.testng.xml.XmlSuite;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 public class Runner {
@@ -31,9 +29,8 @@ public class Runner {
             parser.parseArgument(args);
             testNgConfig = settings.testNgPath;
             System.out.println(SETTING + settings);
-        }
-        catch (CmdLineException e) {
-            System.err.println(e.toString());
+        } catch (CmdLineException e) {
+            System.err.println(e);
             parser.printUsage(System.out);
         }
     }
@@ -44,8 +41,7 @@ public class Runner {
                     .get(0);
             this.testng.setCommandLineSuite(xmlSuite);
             this.testng.run();
-        }
-        catch (TestNGRunException ex) {
+        } catch (TestNGRunException ex) {
             throw new TestNGRunException(ERROR + ex.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);

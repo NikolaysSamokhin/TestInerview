@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
     public static WebDriver getDriver() {
         return driver.get();
@@ -14,7 +14,7 @@ public class DriverManager {
         driver.set(newDriver);
     }
 
-    public static void removeDriver() 	{
+    public static void removeDriver() {
         driver.get().quit();
         driver.remove();
     }

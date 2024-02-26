@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class DatePicker extends TypifiedElement {
 
-    private final  JavascriptExecutor javascriptExecutor ;
+    private final JavascriptExecutor javascriptExecutor;
 
     public DatePicker(WebElement wrappedElement) {
         super(wrappedElement);
@@ -35,23 +35,31 @@ public class DatePicker extends TypifiedElement {
     }
 
     public void setYear(String year) {
-        WaitService.waitUntilPresenceOfElementLocated(String.format("//ul[contains(@class, 'date-picker-years')]//li[contains(text(), '%s')]", year));
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//ul[contains(@class, 'date-picker-years')]" +
+                "//li[contains(text(), '%s')]", year));
 
-        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//ul[contains(@class, 'date-picker-years')]//li[contains(text(), '%s')]", year)));
+        WebElement webElement = getWrappedElement().findElement(By.xpath(String
+                .format("//ul[contains(@class, 'date-picker-years')]//li[contains(text(), '%s')]", year)));
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 
     public void setMonth(String month) {
-        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class, 'date-picker-table--month')]//table//tr//button[.//div[contains(text(), '%s')]]", month));
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class, 'date-picker-table--month')]" +
+                "//table//tr//button[.//div[contains(text(), '%s')]]", month));
 
-        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class, 'date-picker-table--month')]//table//tr//button[.//div[contains(text(), '%s')]]", month)));
+        WebElement webElement = getWrappedElement().findElement(By.xpath(String
+                .format("//div[contains(@class, 'date-picker-table--month')]//table//" +
+                        "tr//button[.//div[contains(text(), '%s')]]", month)));
 
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }
 
     public void setDay(String day) {
-        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class, 'date-picker-table--date')]//table//tr//button[.//div[text()= '%s']]", day));
-        WebElement webElement = getWrappedElement().findElement(By.xpath(String.format("//div[contains(@class, 'date-picker-table--date')]//table//tr//button[.//div[text()= '%s']]", day)));
+        WaitService.waitUntilPresenceOfElementLocated(String.format("//div[contains(@class, 'date-picker-table--date')]" +
+                "//table//tr//button[.//div[text()= '%s']]", day));
+        WebElement webElement = getWrappedElement().findElement(By.xpath(String
+                .format("//div[contains(@class, 'date-picker-table--date')]//table//tr" +
+                        "//button[.//div[text()= '%s']]", day)));
 
         javascriptExecutor.executeScript("arguments[0].click();", webElement);
     }

@@ -8,9 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ResourceBundle;
-
-public class CheckVirtualReceptionSmokeTest extends BaseTest{
+public class CheckVirtualReceptionSmokeTest extends BaseTest {
     private VirtualReceptionPage virtualReceptionPage;
     private static final Logger LOG = Logger.getLogger(CheckVirtualReceptionSmokeTest.class);
 
@@ -38,11 +36,10 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest{
                 .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal());
 
 
-
     }
 
     @DataProvider(name = "smoke-data-provider")
-    public Object[][] smokeDataProvider(){
-        return new Object[][] { { VirtualReceptionGenerator.VirtualReceptionTestDataGenerator()}};
+    public Object[][] smokeDataProvider() {
+        return new Object[][]{{VirtualReceptionGenerator.VirtualReceptionTestDataGenerator()}};
     }
 }

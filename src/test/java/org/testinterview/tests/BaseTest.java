@@ -1,13 +1,13 @@
 package org.testinterview.tests;
 
-import java.util.ResourceBundle;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testinterview.webdriver.DriverFactory;
 import org.testinterview.webdriver.DriverManager;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+
+import java.util.ResourceBundle;
 
 public class BaseTest {
     private static final Logger LOG = Logger.getLogger(BaseTest.class);

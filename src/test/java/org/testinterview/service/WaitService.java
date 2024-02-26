@@ -10,9 +10,8 @@ import org.testinterview.webdriver.DriverManager;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
 
-public class WaitService extends BaseService{
+public class WaitService extends BaseService {
 
     public static void waitUntilElementToBeClickable(WebElement element) {
         WebDriver driver = DriverManager.getDriver();

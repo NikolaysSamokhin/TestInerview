@@ -3,7 +3,7 @@ package org.testinterview.ui.pages;
 import org.apache.log4j.Logger;
 import org.testinterview.ui.elements.VirtualReceptionBlockElement;
 
-public class VirtualReceptionPage extends AbstractPage{
+public class VirtualReceptionPage extends AbstractPage {
     private static final Logger LOG = Logger.getLogger(VirtualReceptionPage.class);
     private VirtualReceptionBlockElement virtualReceptionBlock;
 
@@ -30,7 +30,7 @@ public class VirtualReceptionPage extends AbstractPage{
 
     public VirtualReceptionPage setEmail(String email) {
         LOG.trace(String.format("write down an email %s", email));
-        
+
         virtualReceptionBlock.setEmail(email);
         return this;
     }
@@ -91,7 +91,7 @@ public class VirtualReceptionPage extends AbstractPage{
         return this;
     }
 
-    public boolean isErrorMessageFullNameAppear(){
+    public boolean isErrorMessageFullNameAppear() {
 
 
         return true;
