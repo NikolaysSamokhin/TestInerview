@@ -12,19 +12,25 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <selenium.version>3.141.59</selenium.version>
+    <testng.version>7.1.0</testng.version>
+    <htmlelements.version>1.20.0</htmlelements.version>
+    <extentreports.version>4.0.8</extentreports.version>
+    <extentreports.adapter.version>1.0.3</extentreports.adapter.version>
+    <webdrivermanager.version>5.7.0</webdrivermanager.version>
+    <log4j.version>1.2.17</log4j.version>  </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.18.1</version>
+      <version>${selenium.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-support</artifactId>
-      <version>4.18.1</version>
-    </dependency>
+
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -36,55 +42,44 @@
       <artifactId>args4j</artifactId>
       <version>2.33</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.14.0</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-api -->
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-api</artifactId>
-      <version>4.18.1</version>
-    </dependency>
-
     <dependency>
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
-    <version>5.3.3</version>
+    <version>${webdrivermanager.version}</version>
     <scope>test</scope>
   </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-    </dependency>
-    <dependency>
-      <groupId>org.uncommons</groupId>
-      <artifactId>reportng</artifactId>
-      <version>1.1.2</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>3.0</version>
+      <version>${log4j.version}</version>
     </dependency>
     <dependency>
       <groupId>ru.yandex.qatools.htmlelements</groupId>
       <artifactId>htmlelements-java</artifactId>
-      <version>1.20.0</version>
+      <version>${htmlelements.version}</version>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-chrome-driver</artifactId>
-      <version>4.18.1</version>
+      <version>${selenium.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-api</artifactId>
-      <version>2.53.0</version>
+      <artifactId>selenium-remote-driver</artifactId>
+      <version>${selenium.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>${selenium.version}</version>
     </dependency>
   </dependencies>
   <build>
@@ -94,9 +89,25 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
         <configuration>
-          <release>11</release>  <!--or <release>10</release>-->
+          <release>${maven.compiler.target}</release>  <!--or <release>10</release>-->
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.11</version>
+        <configuration>
+          <systemPropertyVariables>
+            <!--suppress UnresolvedMavenProperty -->
+            <test.version>${test.version}</test.version>
+          </systemPropertyVariables>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 </project>
