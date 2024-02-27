@@ -1,12 +1,16 @@
 package org.testinterview.tests;
 
 import org.apache.log4j.Logger;
+import org.assertj.core.api.SoftAssertions;
 import org.testinterview.generators.VirtualReceptionGenerator;
 import org.testinterview.objects.VirtualReceptionForm;
 import org.testinterview.ui.pages.VirtualReceptionPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class CheckVirtualReceptionSmokeTest extends BaseTest {
     private VirtualReceptionPage virtualReceptionPage;
@@ -35,7 +39,18 @@ public class CheckVirtualReceptionSmokeTest extends BaseTest {
                 .setStatusInput(virtualReceptionForm.getStatus())
                 .setTextOfAppeal(virtualReceptionForm.getTextOfAppeal());
 
+        //Validate error messages
+        assertThat(virtualReceptionPage.getFullNameErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getContactPhoneNumberErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getEmailErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getDateOfBirthErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getStatusErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getTextOfAppealErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getRegionErrorMessage()).isEmpty();
+        assertThat(virtualReceptionPage.getTypeOfAppealErrorMessage()).isEmpty();
 
+        virtualReceptionPage
+                .clickOnSendButton();
     }
 
     @DataProvider(name = "smoke-data-provider")

@@ -1,6 +1,7 @@
 package org.testinterview.ui.pages;
 
 import org.apache.log4j.Logger;
+import org.testinterview.service.WaitService;
 import org.testinterview.ui.elements.VirtualReceptionBlockElement;
 
 public class VirtualReceptionPage extends AbstractPage {
@@ -91,11 +92,48 @@ public class VirtualReceptionPage extends AbstractPage {
         return this;
     }
 
-    public boolean isErrorMessageFullNameAppear() {
-
-
-        return true;
+    public String getFullNameErrorMessage() {
+       return virtualReceptionBlock.getFullNameErrorMessage();
     }
 
+    public String getContactPhoneNumberErrorMessage() {
+        return virtualReceptionBlock.getContactPhoneNumberErrorMessage();
+    }
+
+    public String getEmailErrorMessage() {
+        return virtualReceptionBlock.getEmailErrorMessage();
+    }
+
+    public String getRegionErrorMessage() {
+        return virtualReceptionBlock.getRegionErrorMessage();
+    }
+
+    public String getAddressErrorMessage() {
+        return virtualReceptionBlock.getAddressErrorMessage();
+    }
+
+    public String getSubjectTypeErrorMessage() {
+        return virtualReceptionBlock.getSubjectTypeErrorMessage();
+    }
+
+    public String getStatusErrorMessage() {
+        return virtualReceptionBlock.getStatusErrorMessage();
+    }
+
+    public String getGenderErrorMessage() {
+        return virtualReceptionBlock.getGenderErrorMessage();
+    }
+
+    public String getDateOfBirthErrorMessage() {
+        return virtualReceptionBlock.getDateOfBirthErrorMessage();
+    }
+
+    public String getTypeOfAppealErrorMessage() {
+        return virtualReceptionBlock.getTypeOfAppealErrorMessage();
+    }
+
+    public String getTextOfAppealErrorMessage() {
+        return virtualReceptionBlock.getTextOfAppealErrorMessage();
+    }
 
 }

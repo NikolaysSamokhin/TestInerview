@@ -1,15 +1,21 @@
 package org.testinterview.ui.elements;
 
 import org.openqa.selenium.support.FindBy;
+import org.testinterview.constants.ErrorMessagesText;
 import org.testinterview.service.WaitService;
 import org.testinterview.ui.elements.elementspage.DatePicker;
 import org.testinterview.ui.elements.elementspage.DropDown;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.TextBlock;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 @FindBy(xpath = "//form[@class='v-form']")
 public class VirtualReceptionBlockElement extends CommonElement {
+
+    @Name("ФИО")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Ф И О']")
+    private TextBlock title;
     @Name("ФИО")
     @FindBy(xpath = "//div[contains(@class, 'v-input__control')]//input[@aria-label='Ф И О']")
     private TextInput fullNameInput;
@@ -60,8 +66,7 @@ public class VirtualReceptionBlockElement extends CommonElement {
 
     //Error messages
     @Name("Error Message Full Name Incorrect Value")
-    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Ф И О']]" +
-            "//div[contains(@class, 'v-messages__message')]")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Ф И О']]//div[contains(@class, 'v-messages__message')]")
     private TextInput fullNameIncorrectValueErrorMessage;
 
     @Name("Error Message Phone Number")
@@ -108,6 +113,11 @@ public class VirtualReceptionBlockElement extends CommonElement {
     @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Статус']]" +
             "//div[contains(@class, 'v-messages__message')]")
     private DropDown statusErrorMessage;
+
+    @Name("Text Of Appeal Error Message")
+    @FindBy(xpath = "//div[contains(@class, 'v-input__control') and .//input[@aria-label='Текст обращения']]" +
+            "//div[contains(@class, 'v-messages__message')]")
+    private TextInput textOfAppealErrorMessage;
 
     public void setFullName(String fullName) {
         WaitService.waitForVisibilityOfElement(fullNameInput);
@@ -184,38 +194,91 @@ public class VirtualReceptionBlockElement extends CommonElement {
     }
 
     public String getFullNameErrorMessage() {
-        return fullNameIncorrectValueErrorMessage.getText();
+        if(WaitService.isElementPresent(fullNameIncorrectValueErrorMessage, 2)){
+            return fullNameIncorrectValueErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getContactPhoneNumberErrorMessage() {
-        return contactPhoneNumberErrorMessage.getText();
+        if(WaitService.isElementPresent(contactPhoneNumberErrorMessage, 1)){
+            return contactPhoneNumberErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getEmailErrorMessage() {
-        return emailErrorMessage.getText();
+       if(WaitService.isElementPresent(emailErrorMessage, 1)){
+           return emailErrorMessage.getText();
+       }
+
+        return "";
     }
 
     public String getRegionErrorMessage() {
-        return regionErrorMessage.getText();
+
+        if(WaitService.isElementPresent(regionErrorMessage, 1)){
+            return regionErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getAddressErrorMessage() {
-        return addressErrorMessage.getText();
+        if(WaitService.isElementPresent(addressErrorMessage, 1)){
+            return addressErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getSubjectTypeErrorMessage() {
-        return subjectTypeErrorMessage.getText();
+        if(WaitService.isElementPresent(subjectTypeErrorMessage, 1)){
+            return subjectTypeErrorMessage.getText();
+        }
+
+        return "";
+    }
+
+    public String getStatusErrorMessage() {
+        if(WaitService.isElementPresent(statusErrorMessage, 1)){
+            return statusErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getGenderErrorMessage() {
-        return genderErrorMessage.getText();
+        if(WaitService.isElementPresent(genderErrorMessage, 1)){
+            return genderErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getDateOfBirthErrorMessage() {
-        return dateOfBirthErrorMessage.getText();
+        if(WaitService.isElementPresent(dateOfBirthErrorMessage, 1)){
+            return dateOfBirthErrorMessage.getText();
+        }
+
+        return "";
     }
 
     public String getTypeOfAppealErrorMessage() {
-        return typeOfAppealErrorMessage.getText();
+        if(WaitService.isElementPresent(typeOfAppealErrorMessage, 1)){
+            return typeOfAppealErrorMessage.getText();
+        }
+
+        return "";
+    }
+
+    public String getTextOfAppealErrorMessage() {
+        if(WaitService.isElementPresent(textOfAppealErrorMessage, 1)){
+            return textOfAppealErrorMessage.getText();
+        }
+
+        return "";
     }
 }
